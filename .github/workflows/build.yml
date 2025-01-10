@@ -70,7 +70,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            Voyager-Executable-Ubuntu-20.04/voyager
+            Voyager-Executable-Ubuntu-22.04/voyager
             Voyager-Installer-Windows/voyagerSetup.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
