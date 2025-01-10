@@ -50,12 +50,14 @@ jobs:
           python-version-file: "pyproject.toml"
       - name: Sync
         run: uv sync
+      - name: Wheel
+        run: uv build --wheel
       - name: Build with PyInstaller
         run: |
           uv run pyinstaller deploy/voyager_onefile.spec
       - uses: actions/upload-artifact@v4
         with:
-          name: Voyager-Executable-Ubuntu-22.04
+          name: Voyager-Ubuntu
           path: dist/
 
   release:
@@ -70,7 +72,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            Voyager-Executable-Ubuntu-22.04/voyager
+            Voyager-Ubuntu/voyager
             Voyager-Installer-Windows/voyagerSetup.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
