@@ -73,6 +73,7 @@ jobs:
         with:
           files: |
             Voyager-Ubuntu/voyager
+            Voyager-Ubuntu/*.whl
             Voyager-Installer-Windows/voyagerSetup.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
